@@ -17,6 +17,8 @@ from PIL import Image, ImageDraw, ImageFont
 from StreamDeck.DeviceManager import DeviceManager
 from StreamDeck.ImageHelpers import PILHelper
 
+import StreamDeck.Transport.LibUSBHIDAPI as LibUSBHIDAPI
+
 # Folder location of image assets used by this example.
 ASSETS_PATH = os.path.join(os.path.dirname(__file__), "Assets")
 
@@ -105,6 +107,8 @@ def key_change_callback(deck, key, state):
 
 
 if __name__ == "__main__":
+    LibUSBHIDAPI.NATIVE_LIB_PATH = "B:/Repositorys/ChaosStudio/python-elgato-streamdeck/hidapi.dll"
+
     streamdecks = DeviceManager().enumerate()
 
     print("Found {} Stream Deck(s).\n".format(len(streamdecks)))

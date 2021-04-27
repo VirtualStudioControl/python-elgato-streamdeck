@@ -9,9 +9,11 @@ import atexit
 import ctypes
 import platform
 import threading
+from typing import Optional
 
 from .Transport import Transport, TransportError
 
+NATIVE_LIB_PATH: Optional[str] = None
 
 class LibUSBHIDAPI(Transport):
     """
@@ -33,6 +35,9 @@ class LibUSBHIDAPI(Transport):
 
             if self.HIDAPI_INSTANCE:
                 return self.HIDAPI_INSTANCE
+
+            if NATIVE_LIB_PATH is not None:
+                library_search_list.insert(0, NATIVE_LIB_PATH)
 
             for lib_name in library_search_list:
                 try:
