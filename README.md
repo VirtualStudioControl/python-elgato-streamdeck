@@ -1,7 +1,5 @@
 # Python Elgato Stream Deck Library
 
-![Example Deck](ExampleDeck.jpg)
-
 This is an open source Python 3 library to control an
 [Elgato Stream Deck](https://www.elgato.com/en/gaming/stream-deck) directly,
 without the official software. This can allow you to create your own custom

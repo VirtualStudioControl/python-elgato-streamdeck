@@ -21,7 +21,7 @@ class TransportError(Exception):
 class Transport(ABC):
     """
     Base transport layer, representing an abstract communication back-end which
-    can be used to discovery attached StreamDeck devices.
+    can be used to discovery attached streamdeck devices.
     """
 
     class Device(ABC):

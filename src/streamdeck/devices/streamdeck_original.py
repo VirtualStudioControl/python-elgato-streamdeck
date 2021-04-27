@@ -5,12 +5,12 @@
 #         www.fourwalledcubicle.com
 #
 
-from .StreamDeck import StreamDeck
+from .streamdeck import StreamDeck
 
 
 class StreamDeckOriginal(StreamDeck):
     """
-    Represents a physically attached StreamDeck Original device.
+    Represents a physically attached streamdeck Original device.
     """
 
     KEY_COUNT = 15
@@ -42,7 +42,7 @@ class StreamDeckOriginal(StreamDeck):
     def _convert_key_id_origin(self, key):
         """
         Converts a key index from or to a origin at the physical top-left of
-        the StreamDeck device.
+        the streamdeck device.
 
         :param int key: Index of the button with either a device or top-left origin.
 
@@ -55,8 +55,8 @@ class StreamDeckOriginal(StreamDeck):
 
     def _read_key_states(self):
         """
-        Reads the key states of the StreamDeck. This is used internally by
-        :func:`~StreamDeck._read` to talk to the actual device.
+        Reads the key states of the streamdeck. This is used internally by
+        :func:`~streamdeck._read` to talk to the actual device.
 
         :rtype: list(bool)
         :return: Button states, with the origin at the top-left of the deck.
@@ -71,7 +71,7 @@ class StreamDeckOriginal(StreamDeck):
 
     def _reset_key_stream(self):
         """
-        Sends a blank key report to the StreamDeck, resetting the key image
+        Sends a blank key report to the streamdeck, resetting the key image
         streamer in the device. This prevents previously started partial key
         writes that were not completed from corrupting images sent from this
         application.
@@ -83,7 +83,7 @@ class StreamDeckOriginal(StreamDeck):
 
     def reset(self):
         """
-        Resets the StreamDeck, clearing all button images and showing the
+        Resets the streamdeck, clearing all button images and showing the
         standby image.
         """
 
@@ -93,7 +93,7 @@ class StreamDeckOriginal(StreamDeck):
 
     def set_brightness(self, percent):
         """
-        Sets the global screen brightness of the StreamDeck, across all the
+        Sets the global screen brightness of the streamdeck, across all the
         physical buttons.
 
         :param int/float percent: brightness percent, from [0-100] as an `int`,
@@ -111,7 +111,7 @@ class StreamDeckOriginal(StreamDeck):
 
     def get_serial_number(self):
         """
-        Gets the serial number of the attached StreamDeck.
+        Gets the serial number of the attached streamdeck.
 
         :rtype: str
         :return: String containing the serial number of the attached device.
@@ -122,7 +122,7 @@ class StreamDeckOriginal(StreamDeck):
 
     def get_firmware_version(self):
         """
-        Gets the firmware version of the attached StreamDeck.
+        Gets the firmware version of the attached streamdeck.
 
         :rtype: str
         :return: String containing the firmware version of the attached device.
@@ -133,11 +133,11 @@ class StreamDeckOriginal(StreamDeck):
 
     def set_key_image(self, key, image):
         """
-        Sets the image of a button on the StreamDeck to the given image. The
+        Sets the image of a button on the streamdeck to the given image. The
         image being set should be in the correct format for the device, as an
         enumerable collection of bytes.
 
-        .. seealso:: See :func:`~StreamDeck.get_key_image_format` method for
+        .. seealso:: See :func:`~streamdeck.get_key_image_format` method for
                      information on the image format accepted by the device.
 
         :param int key: Index of the button whose image is to be updated.

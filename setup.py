@@ -9,7 +9,7 @@ with open("README.md", 'r') as f:
 setuptools.setup(
    name='streamdeck',
    version=version,
-   description='Library to control Elgato StreamDeck devices.',
+   description='Library to control Elgato streamdeck devices.',
    author='Dean Camera',
    author_email='dean@fourwalledcubicle.com',
    url='https://github.com/abcminiuser/python-elgato-streamdeck',

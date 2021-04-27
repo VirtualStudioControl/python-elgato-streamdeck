@@ -5,17 +5,17 @@
 #         www.fourwalledcubicle.com
 #
 
-from .Devices.StreamDeckMini import StreamDeckMini
-from .Devices.StreamDeckOriginal import StreamDeckOriginal
-from .Devices.StreamDeckOriginalV2 import StreamDeckOriginalV2
-from .Devices.StreamDeckXL import StreamDeckXL
-from .Transport.Dummy import Dummy
-from .Transport.LibUSBHIDAPI import LibUSBHIDAPI
+from .devices.streamdeck_mini import StreamDeckMini
+from .devices.streamdeck_original import StreamDeckOriginal
+from .devices.streamdeck_original_v2 import StreamDeckOriginalV2
+from .devices.streamdeck_xl import StreamDeckXL
+from .transport.Dummy import Dummy
+from .transport.LibUSBHIDAPI import LibUSBHIDAPI
 
 
 class ProbeError(Exception):
     """
-    Exception thrown when attempting to probe for attached StreamDeck devices,
+    Exception thrown when attempting to probe for attached streamdeck devices,
     but no suitable valid transport was found.
     """
 
@@ -24,9 +24,9 @@ class ProbeError(Exception):
 
 class DeviceManager:
     """
-    Central device manager, to enumerate any attached StreamDeck devices. An
+    Central device manager, to enumerate any attached streamdeck devices. An
     instance of this class must be created in order to detect and use any
-    StreamDeck devices.
+    streamdeck devices.
     """
 
     USB_VID_ELGATO = 0x0fd9
@@ -81,7 +81,7 @@ class DeviceManager:
 
     def __init__(self, transport=None):
         """
-        Creates a new StreamDeck DeviceManager, used to detect attached StreamDeck devices.
+        Creates a new streamdeck DeviceManager, used to detect attached streamdeck devices.
 
         :param str transport: name of the the specific HID transport back-end to use, None to auto-probe.
         """
@@ -89,10 +89,10 @@ class DeviceManager:
 
     def enumerate(self):
         """
-        Detect attached StreamDeck devices.
+        Detect attached streamdeck devices.
 
-        :rtype: list(StreamDeck)
-        :return: list of :class:`StreamDeck` instances, one for each detected device.
+        :rtype: list(streamdeck)
+        :return: list of :class:`streamdeck` instances, one for each detected device.
         """
 
         products = [
