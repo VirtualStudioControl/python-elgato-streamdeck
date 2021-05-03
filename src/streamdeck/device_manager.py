@@ -4,11 +4,13 @@
 #   dean [at] fourwalledcubicle [dot] com
 #         www.fourwalledcubicle.com
 #
+from typing import List
 
 from .devices.streamdeck_mini import StreamDeckMini
 from .devices.streamdeck_original import StreamDeckOriginal
 from .devices.streamdeck_original_v2 import StreamDeckOriginalV2
 from .devices.streamdeck_xl import StreamDeckXL
+from .devices.streamdeck import StreamDeck
 from .transport.Dummy import Dummy
 from .transport.LibUSBHIDAPI import LibUSBHIDAPI
 
@@ -87,7 +89,7 @@ class DeviceManager:
         """
         self.transport = self._get_transport(transport)
 
-    def enumerate(self):
+    def enumerate(self) -> List[StreamDeck]:
         """
         Detect attached streamdeck devices.
 
@@ -102,7 +104,7 @@ class DeviceManager:
             (self.USB_VID_ELGATO, self.USB_PID_STREAMDECK_XL, StreamDeckXL),
         ]
 
-        streamdecks = list()
+        streamdecks: List[StreamDeck] = list()
 
         for vid, pid, class_type in products:
             found_devices = self.transport.enumerate(vid=vid, pid=pid)
